@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+@font-face {
+    font-family: Fira Sans;
+    src: url(https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap);
+  }
+  
+  @font-face {
+    font-family: Fira Sans;
+    src: url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+    font-weight: bold;
+  }
+  
+  div {
+    font-family: Fira Sans;
+  }
+  
+  .card {
+    border-radius: 7px;
+    padding: 0.7rem;
+    margin: 0.5rem;
+  }
+  
+  .fieldsContainer input {
+    margin: 1rem 0;
+    font-family: Fira Sans;
+  }
+  
+  .details h3 {
+    margin: 0.1rem;
+  }
+  
+  .sliders {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .checkboxContainer {
+    font-weight: bold;
+  }
+  
+  .chartContainer {
+    text-align: center;
+    height: 175px;
+  }
+  

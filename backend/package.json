@@ -9,7 +9,7 @@
     "dev": "nodemon server.js",
     "burnthemall": "rm -rf node_modules package-lock.json && npm i"
   },
-  "author": "Namit Nathwani",
+  "author": "Team",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
