@@ -27,26 +27,24 @@
 
         .top_row{
             background-color: rgb(224, 214, 214);
+            width: 98%;
             height: 40%;
-            margin-bottom: 60px;
+            position: relative;
+            top: 5%;
         }
         .bottom_row{
             background-color: rgb(224, 214, 214);
+            width: 98%;
             height: 40%;
+            position: relative;
+            top: 15%;
         }
 
         .btn-group button {
             background-color: #111417; /* Green background */
             border: 1px solid silver; /* Green border */
             color: white; /* White text */
-            padding: 10px 24px; /* Some padding */
-            cursor: pointer; /* Pointer/hand icon */
-            float: left; /* Float the buttons side by side */
-            margin: 16px;
-            align-items: center;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            vertical-align: auto;
+            height: 100%;
             }
 
             /* Clear floats (clearfix hack) */
@@ -64,6 +62,30 @@
             .btn-group button:hover {
             background-color: #25282c;
             }
+
+            .acc:hover{
+            background: url("images/account.png");
+            }
+
+            .tr_his:hover{
+            background: url("images/txn.png");
+            }
+
+            .mk_pay:hover{
+            background: url("images/payment.png");
+            }
+
+            .ret:hover{
+            background: url("images/retirement.jpg");
+            }
+
+            .loans:hover{
+            background: url("images/loan.png");
+            }
+
+            .ins:hover{
+            background: url("images/insurance.png");
+            }
     </style>
 </head>
 
@@ -71,17 +93,17 @@
     <div class="main_box">
         <div class="top_row">
             <div class="btn-group" style="width:100%">
-            <button style="width:30.3%">Apple</button>
-            <button style="width:30.3%">Samsung</button>
-            <button style="width:30.3%">Sony</button>
+            <button class="acc" style="width:30.3%">Account Details</button>
+            <button class="tr_his" style="width:30.3%">Transaction History</button>
+            <button class="mk_pay" style="width:30.3%">Make a Payment</button>
             </div>
         </div>
 
         <div class="bottom_row">
             <div class="btn-group" style="width:100%">
-            <button style="width:30.3%">Apple</button>
-            <button style="width:30.3%">Samsung</button>
-            <button style="width:30.3%">Sony</button>
+            <button class="ret" style="width:30.3%">Retirement Planning</button>
+            <button class="loans" style="width:30.3%">Loans</button>
+            <button class="ins" style="width:30.3%">Insurance</button>
             </div>
 
         </div>
