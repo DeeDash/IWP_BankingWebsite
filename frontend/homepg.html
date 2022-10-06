@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <title>Signup</title>
-<link rel="stylesheet" href="css/homepg.css">
 
 <head>
     <style>
@@ -41,21 +40,17 @@
         }
 
         .btn-group button {
+            float: left;
+            
             background-color: #111417; /* Green background */
             border: 1px solid silver; /* Green border */
             color: white; /* White text */
-            height: 100%;
-            }
-
-            /* Clear floats (clearfix hack) */
-            .btn-group:after {
-            content: "";
-            clear: both;
-            display: table;
-            }
-
-            .btn-group button:not(:last-child) {
-            border-right: none; /* Prevent double borders */
+            display : flex;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+            margin: 0px auto 0px;
+            height: 20vh;
             }
 
             /* Add a background color on hover */
@@ -64,27 +59,28 @@
             }
 
             .acc:hover{
-            background: url("images/account.png");
+            background: url("images/account.png") no-repeat;
             }
 
             .tr_his:hover{
-            background: url("images/txn.png");
+            background: url("images/txn.jpg") no-repeat;
             }
 
             .mk_pay:hover{
-            background: url("images/payment.png");
+            background: url("images/payment.png") no-repeat;
             }
 
             .ret:hover{
-            background: url("images/retirement.jpg");
+            left: 50%;
+            background: url("images/retirement.jpg") no-repeat;
             }
 
             .loans:hover{
-            background: url("images/loan.png");
+            background: url("images/loan.png") no-repeat;
             }
 
             .ins:hover{
-            background: url("images/insurance.png");
+            background: url("images/insurance.png") no-repeat;
             }
     </style>
 </head>
@@ -93,17 +89,17 @@
     <div class="main_box">
         <div class="top_row">
             <div class="btn-group" style="width:100%">
-            <button class="acc" style="width:30.3%">Account Details</button>
-            <button class="tr_his" style="width:30.3%">Transaction History</button>
-            <button class="mk_pay" style="width:30.3%">Make a Payment</button>
+            <button class="acc" style="width:33.3%">Account Details</button>
+            <button class="tr_his" style="width:33.3%">Transaction History</button>
+            <button class="mk_pay" style="width:33.4%">Make a Payment</button>
             </div>
         </div>
 
         <div class="bottom_row">
             <div class="btn-group" style="width:100%">
-            <button class="ret" style="width:30.3%">Retirement Planning</button>
-            <button class="loans" style="width:30.3%">Loans</button>
-            <button class="ins" style="width:30.3%">Insurance</button>
+            <button class="ret" style="width:33.3%">Retirement Planning</button>
+            <button class="loans" style="width:33.3%">Loans</button>
+            <button class="ins" style="width:33.4%">Insurance</button>
             </div>
 
         </div>
