@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <script src="js/account.js"></script>
+    <link href="css/halfmoon-variables.css" rel="stylesheet" />
+</head>
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars p-20">
+    <div class="font-size-24 font-weight-bold">
+        Account Details
+    </div>
+    <div class="d-flex flex-column p-5">
+        <div>
+            Name: Test
+        </div>
+        <div>
+            Number: XXXX-XXXX-XXXX-XXXX
+        </div>
+        <div>
+            Type: Savings
+        </div>
+        <div>
+            <span>
+                Balance:
+            </span>
+            <span class="text-success">
+                Rs. 25000.00
+            </span>
+        </div>
+        <div class="d-flex flex-column border rounded my-5 p-10">
+            <div class="font-size-18 font-weight-bold">
+                Recent Transactions
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Serial Number
+                            </th>
+                            <td>
+                                Receiver
+                            </td>
+                            <td>
+                                Amount
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                1
+                            </th>
+                            <td>
+                                Garvit Patel
+                            </td>
+                            <td>
+                                Rs. 18000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                2
+                            </th>
+                            <td>
+                                Udit Narayan
+                            </td>
+                            <td>
+                                Rs. 25000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                3
+                            </th>
+                            <td>
+                                Vaibhav Singh
+                            </td>
+                            <td>
+                                Rs. 200000.00
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="border rounded my-5 p-10">
+        <div class="font-size-18 font-weight-bold">
+            Insurance Information
+        </div>
+        <div class="d-flex justify-content-between align-items-end">
+            <div>
+                <div>
+                    <span>
+                        Policy Number:
+                    </span>
+                    <span class="text-danger">
+                        Not Applicable
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        Provider:
+                    </span>
+                    <span class="text-danger">
+                        Not Applicable
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        Amount:
+                    </span>
+                    <span class="text-danger">
+                        Not Applicable
+                    </span>
+                </div>
+            </div>
+            <button class="btn btn-primary">
+                Apply for Insurance
+            </button>
+        </div>
+    </div>
+    <div class="border rounded my-5 p-10">
+        <div class="font-size-18 font-weight-bold">
+            Banking statement
+        </div>
+        <button class="btn btn-primary my-5">
+            Get E-Banking statement
+        </button>
+    </div>
+    <div class="border rounded my-5 p-10">
+        <div class="font-size-18 font-weight-bold">
+            Loan Information
+        </div>
+        <div class="d-flex justify-content-between align-items-end">
+            <div>
+                <div>
+                    <span>
+                        Loan ID:
+                    </span>
+                    <span class="text-success">
+                        XXXXXXXXXXXXXX
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        Amount:
+                    </span>
+                    <span class="text-success">
+                        Rs. 25000.00
+                    </span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary mx-5">
+                    Apply for Loan
+                </button>
+                <button class="btn btn-primary mx-5">
+                    Clear Loan
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="border rounded my-5 p-10">
+        <div class="font-size-18 font-weight-bold">
+            Credit Card(s) Information
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <div class="d-flex mb-10 justify-content-between align-items-center">
+                    <div>
+                        <span>
+                            Card Number:
+                        </span>
+                        <span class="text-success">
+                            XXXX-XXXX-XXXX-XXXX
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            Amount:
+                        </span>
+                        <span class="text-danger">
+                            Rs. 25000.00
+                        </span>
+                    </div>
+                    <div class="d-flex">
+                        <button class="btn btn-danger mx-5">
+                            Unlink Credit Card
+                        </button>
+                    </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <span>
+                            Card Number:
+                        </span>
+                        <span class="text-success">
+                            XXXX-XXXX-XXXX-XXXX
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            Amount:
+                        </span>
+                        <span class="text-success">
+                            Rs. 0.00
+                        </span>
+                    </div>
+                    <div class="d-flex">
+                        <button class="btn btn-danger mx-5">
+                            Unlink Credit Card
+                        </button>
+                    </div>
+                </div>
+            </tr>
+        </table>
+        <button class="btn btn-primary my-10">
+            Apply for Credit Card
+        </button>
+    </div>
+    <div class="border rounded p-10 my-5">
+        <div class="font-size-18 font-weight-bold">
+            Debit Card(s) Information
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <div class="d-flex my-10 justify-content-between align-items-center">
+                    <div>
+                        <span>
+                            Card Number:
+                        </span>
+                        <span class="text-success">
+                            XXXX-XXXX-XXXX-XXXX
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            Amount:
+                        </span>
+                        <button class="btn btn-primary mx-5">
+                            Get Balance
+                        </button>
+                    </div>
+                    <div class="d-flex">
+                        <button class="btn btn-danger mx-5">
+                            Unlink Debit Card
+                        </button>
+                    </div>
+                </div>
+            </tr>
+        </table>
+    </div>
+    <div class="border rounded p-10 my-5">
+        <div class="font-size-18 font-weight-bold">
+            Retirement Plan
+        </div>
+        <div class="d-flex justify-content-between align-items-end">
+            <div>
+                <div>
+                    <span>
+                        Plan ID:
+                    </span>
+                    <span class="text-danger">
+                        Not Applicable
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        Amount reimbursed:
+                    </span>
+                    <span class="text-danger">
+                        Not Applicable
+                    </span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary mx-5">
+                    Check eligibility
+                </button>
+                <button class="btn btn-primary mx-5">
+                    Apply for a plan
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
