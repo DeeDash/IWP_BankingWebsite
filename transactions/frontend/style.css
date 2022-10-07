@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+body {
+    background-color: #191c20;
+    color: aliceblue;
+    font-family: Fira Sans;
+}
+
+table {
+    border: 1px solid;
+    width: 70%;
+    border-collapse: collapse;
+}
+
+th {
+    border: 1px solid;
+    background-color: #111417;
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    border: 1px solid;
+    text-align: center;
+    padding: 10px;
+}
+
+button {
+    background-color: #111417;
+    color: aliceblue;
+    font-family: Fira Sans;
+    height: 35px;
+    width: 60px;
+    border: none;
+    border-radius: 3px;
+}
+
+#failed {
+    color: aliceblue;
+    background-color: rgb(115, 0, 0);
+}
+
+#main {
+    width: 80%;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #25282c;
+}
