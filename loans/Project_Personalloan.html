@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>Personal Loan</title>
+         <style>
+         @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+        body{
+            background-color: #191c20;
+            font-family: 'Fira Sans';
+        }
+        #outer {
+            width: 90%;
+            height: 450px;
+            background-color: #25282c;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 60px;
+            padding: 10px;
+            font-size: 22;
+            color: white;
+            text-align: center;
+            font-family: 'Fira Sans';
+        }
+        #lef{
+            width:40%;
+            float:left;
+            text-align:justify;
+            padding:14px;
+        }
+        #rig{
+            width:55%;
+            float:right;
+            padding:14px;
+        }
+        input{
+            width:300px;
+        }
+         </style>
+    </head>
+    <body>
+        <script>
+            function show_value1(x)
+            {
+                document.getElementById("P1").innerHTML=x;
+            }
+            function show_value2(x)
+            {
+                document.getElementById("P2").innerHTML=x;
+            }
+            function show_value3(x)
+            {
+                document.getElementById("P3").innerHTML=x;
+            }
+            
+            let a=50000;
+            let m = 12;
+            let r = 0;
+            function func(x,y){
+                            if (y==="LA")
+                            {
+                                a=x;
+                            }
+                            else if(y==="T")
+                            {
+                                m=x;
+                            }
+                            else if (y==="R"){
+                                r=x;
+                            }
+                            let ans=(a * (r/(100*12)) * (Math.pow((1+r/(100*12)),(m))))/(Math.pow((1+r/(100*12)),(m))-1);
+
+                document.getElementById("S1").innerHTML=Math.round(ans,0);
+            }
+        </script>
+       <div id="outer">
+
+        <div id="lef">
+          <center>  <h3>Personal Loan</h3> </center>
+            <P>
+Personal Loan is an unsecured loan that caters to all your financial needs such as travel,home renovation, applying online courses, medical emergency or wedding. 
+You can easily apply for a Bank Personal Loan, up to Rs 50 lakh depending upon your eligibility without any collateral security.
+With our Personal Loan EMI calculator, you can also check the Personal Loan EMI that you are entitled to pay every month.
+            </P><br><br>
+            <p style="font-size:15;">*Online loan application service is not available. Please visit your nearest bank branch to apply for the loan.</p>
+        </div>
+        <div id="rig">
+            <div style="height:15%;"><center>Personal loan EMI calculator</center></div>
+            <div style="width:50%;height:65%;text-align:center;float:left;">
+            Loan Amount (in Rs.) <br><br>
+            <input type="range" id="LA" min="50000" max="5000000" step="1000" value="50000" onchange="show_value1(this.value);func(this.value,this.id);"><br><br>
+            Tenure (in Months) <br><br>
+            <input type="range" id="T" min="12" max="72" step="6" value="12" onchange="show_value2(this.value);func(this.value,this.id);"> <br><br>
+            Interest Rate (In % per annum) <br><br>
+            <input type="range" id="R" min="0" max="20" step="0.1" value="0" onchange="show_value3(this.value);func(this.value,this.id);"> <br>
+        </div>
+        <div style="width:50%;height:65%;text-align:center;float:right;">
+           <br>
+            Rs. <span id="P1">50000</span><br><br>
+            <br><br>
+            <span id="P2">12</span><br><br>
+            <br><br>
+            <span id="P3">0</span><br>
+        </div>
+        
+        <div style="height:19%;text-align: center;">
+            EMI Amount : Rs. <span id="S1">0</span>
+        
+        
+        </div>
+          </div> 
+          
+       </div>
+    </body>
+</html>
