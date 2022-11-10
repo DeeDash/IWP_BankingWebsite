@@ -1,39 +1,58 @@
+
 <html>
     <head>
-        <title>Personal Loan</title>
+        <title>Home Loan</title>
+           
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">              
+ 
          <style>
          @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
-        body{
-            background-color: #191c20;
-            font-family: 'Fira Sans';
-        }
-        #outer {
-            width: 90%;
-            height: 450px;
-            background-color: #25282c;
-            border-radius: 10px;
-            margin: 0 auto;
-            margin-top: 60px;
-            padding: 10px;
-            font-size: 22;
-            color: white;
-            text-align: center;
-            font-family: 'Fira Sans';
-        }
+       body{
+        color:white;
+
+       }
         #lef{
-            width:40%;
-            float:left;
+            height:450px;
+            width:50%;
             text-align:justify;
             padding:14px;
+            margin:0px auto;
+            margin-top: 60px;
+            min-width:400px;
+            border-radius: 10px;
         }
+    
         #rig{
-            width:55%;
-            float:right;
+            width:50%;
+
             padding:14px;
+            height:450px;
+            margin:0px auto;
+            margin-top: 5px;
+            min-width: 400px;
+            border-radius:10px;
         }
+        
         input{
             width:300px;
         }
+        @media only screen and (max-width:1200px){
+            input{
+                width:250px;
+            }
+        }
+        @media only screen and (max-width:1100px){
+            input{
+                width:190px;
+            }
+        }
+        @media only screen and (max-width:600px){
+            input{
+                width:180px;
+            }
+        }
+        
          </style>
     </head>
     <body>
@@ -71,18 +90,18 @@
                 document.getElementById("S1").innerHTML=Math.round(ans,0);
             }
         </script>
-       <div id="outer">
+     
 
-        <div id="lef">
+     <div id="lef" class="bg-primary">
           <center>  <h3>Home Loan</h3> </center>
             <P>Bank Home Loan is a one-stop solution to own your dream home. Whether your goal is to purchase or build a new house, we offer a wide range of products to meet your requirements. We offer affordable Home Loans at attractive interest rates for a tenure of up to 30 years.
          
             </P><br><br>
             <p style="font-size:15;">*Online loan application service is not available. Please visit your nearest bank branch to apply for the loan.</p>
         </div>
-        <div id="rig">
+        <div id="rig" class="bg-primary" >
             <div style="height:15%;"><center>Personal loan EMI calculator</center></div>
-            <div style="width:50%;height:65%;text-align:center;float:left;">
+            <div style="width:53%;height:300px;text-align:center;float:left;background-color: white;color:#0275d8;border-radius:10px;">
             Loan Amount (in Rs.) <br><br>
             <input type="range" id="LA" min="0" max="100000000" step="1000" value="0" onchange="show_value1(this.value);func(this.value,this.id);"><br><br>
             Tenure (in Months) <br><br>
@@ -90,7 +109,7 @@
             Interest Rate (In % per annum) <br><br>
             <input type="range" id="R" min="0" max="20" step="0.1" value="0" onchange="show_value3(this.value);func(this.value,this.id);"> <br>
         </div>
-        <div style="width:50%;height:65%;text-align:center;float:right;">
+        <div style="width:46%;height:67%;text-align:center;float:right;">
            <br>
             Rs. <span id="P1">0</span><br><br>
             <br><br>
@@ -100,11 +119,10 @@
         </div>
         
         <div style="height:19%;text-align: center;">
-            EMI Amount : Rs. <span id="S1">0</span>
+            <p><br> EMI Amount : Rs. <span id="S1">0</span></p>
         
         
         </div>
-          </div> 
           
        </div>
     </body>
