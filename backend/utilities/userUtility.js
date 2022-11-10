@@ -31,10 +31,6 @@ const matrixMult = (a, b) => {
   );
 };
 
-const confidence = (mean, sd, n, c = 0.95) => {
-
-};
-
 const norm = (a) => Math.sqrt(ss.sum(a.map((v) => v ** 2)));
 
 const euclidean = (d1, d2, w = 1) => Math.sqrt(w * (Math.abs(d2 - d1) ** 2));
@@ -75,12 +71,6 @@ const mahalanobis = (attempt, mean, covMatrix) => {
 
 const cityblockArray = (a1, a2) => ss.sum(
   a1.map((v, i) => Math.abs(a1[i] - a2[i])),
-);
-
-const euclideanArray = (a1, a2, w) => Math.sqrt(
-  ss.sum(
-    a1.map((v, i) => (w?.[i] ?? 1) * (Math.abs(a1[i] - a2[i]) ** 2)),
-  ),
 );
 
 const covariance = (x, y, xMean, yMean, n) => (1 / (n - 1)) * ss.sum(
