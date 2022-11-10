@@ -158,41 +158,35 @@ function sendToServer() {
     body: JSON.stringify(data),
   }).then(async (res) => {
     if(res.ok) {
-      window.location.replace("http://localhost:2800/");
-      // window.location("Basic-Banking-System/public/index.html");
-      // let response = await res.json();
+      window.location("Basic-Banking-System/public/index.html");
+      let response = await res.json();
 
-      // const table = document.getElementById('dataTable');
+      const table = document.getElementById('dataTable');
 
-      // Object.keys(controls).map((detector, detectorIndex) => {
-      //   const data = response.result[detector];
-      //   const keys = responseKeys[detector];
+      Object.keys(controls).map((detector, detectorIndex) => {
+        const data = response.result[detector];
+        const keys = responseKeys[detector];
 
-      //   Array.from(table.getElementsByTagName('tr')).map((row, i) => {
-      //     const index = i - 1;
-      //     if (i === 0) return;
-      //     if (i === keys.length + 1) {
-      //       row.getElementsByTagName('th')[1].innerHTML = response.result.accepted;
-      //       return;
-      //     }
+        Array.from(table.getElementsByTagName('tr')).map((row, i) => {
+          const index = i - 1;
+          if (i === 0) return;
+          if (i === keys.length + 1) {
+            row.getElementsByTagName('th')[1].innerHTML = response.result.accepted;
+            return;
+          }
 
-      //     const cells = row.getElementsByTagName('td');
-      //     const value = Object.byString(data, keys[index]) ?? '-';
-      //     const cellValue = (typeof value == 'number') ? value.toFixed(2) : value;
+          const cells = row.getElementsByTagName('td');
+          const value = Object.byString(data, keys[index]) ?? '-';
+          const cellValue = (typeof value == 'number') ? value.toFixed(2) : value;
           
-      //     cells[detectorIndex].innerHTML = cellValue;
-      //   });
-      // });
+          cells[detectorIndex].innerHTML = cellValue;
+        });
+      });
 
-      // types.map((type) => {
-      //   populateChart(charts.standard[type], response.db[type], response.attempt[type]);
-      //   populateChart(charts.filtered[type], response.filteredDb[type], response.attempt[type]);
-      // });
-
-   
-    //  
-      
-
+      types.map((type) => {
+        populateChart(charts.standard[type], response.db[type], response.attempt[type]);
+        populateChart(charts.filtered[type], response.filteredDb[type], response.attempt[type]);
+      });
     } else {
       let response = await res.json();
 
