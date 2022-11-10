@@ -158,7 +158,6 @@ function sendToServer() {
     body: JSON.stringify(data),
   }).then(async (res) => {
     if(res.ok) {
-      window.location("Basic-Banking-System/public/index.html");
       let response = await res.json();
 
       const table = document.getElementById('dataTable');
