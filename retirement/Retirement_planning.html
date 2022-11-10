@@ -6,109 +6,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retirement planning</title>
-    <link rel="stylesheet" href="css/retirement_planning.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/retirement_planning.css"> -->
+    <style>
+        .box-main {
+            background-image: url('./images/img1.jpg');
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul class="nav-list">
-            <div class="logo"><img src="./images/img.png" alt="logo"></div>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Pension plans</a></li>
-            <li><a href="#contact">Talk to us</a></li>
-        </ul>
-        <div class="rightnav">
-            <input type="text" name="search" id="search" placeholder="Search">
-            <button class="btn btn-sm">Search</button>
-        </div>
-    </nav>
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact us</a>
+        </li>
+    </ul>
 
-    <section class="background firstSection">
-        <div class="box-main">
-            <div class="firstHalf">
-                <p class="text-big">Retirement planning</p>
-                <p class="small-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Excepturi doloremque ut laborum minus labore esse in itaque nemo nulla cum, molestias</p>
-                <div class="buttons">
-                    <button class="btn">Learn More</button>
+    <section class="">
+        <div class="box-main d-grid align-items-center vh-100">
+            <div class="col-5 m-5">
+                <h1>Retirement planning</h1>
+                <div>
+                    <p class="small-text">While retirement has different meanings for different individuals, it is
+                        generally
+                        associated with a few unique changes and aspirations. A careful planning is required for
+                        retirement
+                        which aims to manage inflation, at the same time considers future cash flow requirements.</p>
+                    <a class="btn btn-primary" href="#learnmore">Learn More</a>
                 </div>
             </div>
-
-            <div class="secondHalf">
-                <img src="./images/img.png" alt="bank image">
-            </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="paras">
-        <p class="sectionTag text-big">Enjoy your post retirement life</p>
-        <p class="sectionSubTag text-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam odio commodi eum
-            dolore, a, laboriosam nobis eos blanditiis maxime, placeat at voluptas modi! Porro maxime totam nihil,
-            quibusdam alias officiis repellat recusandae consequatur commodi nemo architecto repellendus placeat facere
-            cumque cum quaerat ea adipisci ipsum! Magni omnis, animi a distinctio et sapiente, voluptate earum aut iste
-            minima repellendus laudantium suscipit accusantium consectetur unde dolores vel dolore repellat consequatur?
-            Similique, veniam facere deserunt sapiente, blanditiis pariatur commodi quam a consectetur maxime quos autem
-            non doloribus ut dolores ratione odio. Dolore repudiandae voluptatum cum qui omnis minus fugit et quos
-            error.</p>
-        </div>    
-
-            <div class="thumbnail">
-                <img src="./images/img.png" alt="bank image" class="imgFluid">
+    <section id="learnmore" class="container-fluid p-5 pb-0">
+        <div class="border rounded border-3 d-flex">
+            <div class="m-4">
+                <h1 class="sectionTag text-big">Enjoy your post retirement life</h1>
+                <p class="sectionSubTag text-small">When you begin your career, retirement might seem like a distant
+                    idea,
+                    but as the years pass on, and you reach the age of 60, you have to retire. Retirement is inevitable,
+                    and
+                    comes with its unique set of pros and cons. While for some people, retirement might sound difficult
+                    as
+                    it brings an abrupt halt to the fixed routine and schedule, for others it could be the phase where
+                    the
+                    years of slogging - to meet one's professional commitments - ends, resulting in the much-needed
+                    relaxation. If you have made planned investments early in life - for your long-term goals- the
+                    post-retirement years could well be the proverbial golden years of your life. Retirement planning by
+                    making sound investments decisions is the key to enjoy and relax with your loved ones.</p>
             </div>
-    </section>
-    
-    
-    <section class="section section-left">
-        <div class="paras">
-        <p class="sectionTag text-big">Manage your progress</p>
-        <p class="sectionSubTag text-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam odio commodi eum
-            dolore, a, laboriosam nobis eos blanditiis maxime, placeat at voluptas modi! Porro maxime totam nihil,
-            quibusdam alias officiis repellat recusandae consequatur commodi nemo architecto repellendus placeat facere
-            cumque cum quaerat ea adipisci ipsum! Magni omnis, animi a distinctio et sapiente, voluptate earum aut iste
-            minima repellendus laudantium suscipit accusantium consectetur unde dolores vel dolore repellat consequatur?
-            Similique, veniam facere deserunt sapiente, blanditiis pariatur commodi quam a consectetur maxime quos autem
-            non doloribus ut dolores ratione odio. Dolore repudiandae voluptatum cum qui omnis minus fugit et quos
-            error.</p>
-        </div>    
-
-            <div class="thumbnail">
-                <img src="./images/img.png" alt="bank image" class="imgFluid">
+            <div class="m-4">
+                <img src="./images/img-1.jfif" alt="bank image" class="imgFluid">
             </div>
-    </section>
-    <section class="section">
-        <div class="paras">
-        <p class="sectionTag text-big">Enjoy tax benefits</p>
-        <p class="sectionSubTag text-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam odio commodi eum
-            dolore, a, laboriosam nobis eos blanditiis maxime, placeat at voluptas modi! Porro maxime totam nihil,
-            quibusdam alias officiis repellat recusandae consequatur commodi nemo architecto repellendus placeat facere
-            cumque cum quaerat ea adipisci ipsum! Magni omnis, animi a distinctio et sapiente, voluptate earum aut iste
-            minima repellendus laudantium suscipit accusantium consectetur unde dolores vel dolore repellat consequatur?
-            Similique, veniam facere deserunt sapiente, blanditiis pariatur commodi quam a consectetur maxime quos autem
-            non doloribus ut dolores ratione odio. Dolore repudiandae voluptatum cum qui omnis minus fugit et quos
-            error.</p>
-        </div>    
+        </div>
 
-            <div class="thumbnail">
-                <img src="./images/img.png" alt="bank image" class="imgFluid">
-            </div>
     </section>
-    
+
+
+    <section class="container-fluid p-5 pb-0">
+        <div class="border rounded border-3 d-flex">
+            <div class="m-4">
+                <img src="./images/img-2.jfif" alt="bank image" class="imgFluid">
+            </div>
+            <div class="m-4">
+                <h1 class="sectionTag text-big">Manage your progress</h1>
+                <p class="sectionSubTag text-small">Retirement planning means preparing today for your future life so
+                    that you continue to meet all your goals and dreams independently. This includes setting your
+                    retirement goals, estimating the amount of money you will need, and investing to grow your
+                    retirement savings.
+
+                    Every retirement plan is unique. After all, you may have very specific ideas on how you want to
+                    spend your retired life. This is why it’s important to have a plan that is designed specifically to
+                    suit your individual needs.</p>
+            </div>
+        </div>
+
+    </section>
+    <section class="container-fluid p-5">
+        <div class="border border-3 rounded d-flex">
+            <div class="m-4">
+                <h1 class="sectionTag text-big">Enjoy tax benefits</h1>
+                <p class="sectionSubTag text-small">The term tax benefit refers to any tax law that helps you reduce
+                    your
+                    tax liability. Benefits range from deductions and tax credits to exclusions and exemptions. They
+                    cover
+                    various areas, including programs for families, education, employees, and natural disasters.
+
+                    Some tax benefits are related to the ability to pay tax. For example, the child tax credit and the
+                    earned income tax credit recognize the cost of raising a family. Other tax benefits—including
+                    mortgage
+                    interest and charitable donation deductions—are incentives designed to further social policy goal
+                </p>
+            </div>
+            <div class="m-4">
+                <img src="./images/img-3.jfif" alt="bank image" class="imgFluid">
+            </div>
+        </div>
+
+    </section>
+
     <hr>
-    <section class="contact" id="contact">
+    <section class="container-fluid d-flex flex-column p-5" id="contact">
         <h2 class="contact-heading">Talk to us</h2>
-        <div class="form">
-            <input type="text" name="name" id="name" placeholder="Enter your name">
-            <input type="text" name="phone" id="phone" placeholder="Enter your phone number">
-            <input type="email" name="email" id="email" placeholder="Enter your email">
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Elaborate your concern"></textarea>
-            <button class=" btn btn-dark">Submit</button>
-            <button class=" btn btn-dark">Reset</button>
-        </div>
+        <form method="post" class="contact-form">
+            <div class="d-flex flex-column gap-2">
+                <input type="text" name="name" class="name" id="name" placeholder="Enter your name" required>
+                <input type="text" name="phone" class="name" id="phone" placeholder="Enter your phone number" required>
+                <input type="email" name="email" class="name" id="email" placeholder="Enter your email" required>
+                <textarea class="name" name="message" id="message" cols="30" rows="10"
+                    placeholder="Elaborate your concern"></textarea>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+            </div>
+        </form>
     </section>
 
-    <footer>
+    <!-- <footer>
         <p class="text-footer">Copyright &copy; All rights reserved</p>
-    </footer>
+    </footer> -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="js/contact.js"></script>
 </body>
