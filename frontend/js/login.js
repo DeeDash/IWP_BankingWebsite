@@ -4,30 +4,33 @@ var keyCount = 0;
 
 var usernameField, passwordField;
 
-const LOGIN_LINK = 'http://localhost:3001/user/login';
+const LOGIN_LINK = "http://localhost:3001/user/login";
 
 // For charts
-const chartTypes = ['standard', 'filtered'];
-const types = ['hold', 'flight', 'dd', 'full'];
+const chartTypes = ["standard", "filtered"];
+const types = ["hold", "flight", "dd", "full"];
 
 const responseKeys = {
-  standard: ['use', 'threshold', 'sd', 'inRangePercent.full', 'inRange.full'],
-  filtered: ['use', 'threshold', 'sd', 'inRangePercent.full', 'inRange.full'],
-  mahalanobis: ['use', 'threshold', '', 'distance.full', 'inRange.full'],
-  fullStandard: ['use', 'threshold', '', 'normedDistance.full', 'inRange.full'],
-  fullFiltered: ['use', 'threshold', '', 'normedDistance.full', 'inRange.full'],
+  standard: ["use", "threshold", "sd", "inRangePercent.full", "inRange.full"],
+  filtered: ["use", "threshold", "sd", "inRangePercent.full", "inRange.full"],
+  mahalanobis: ["use", "threshold", "", "distance.full", "inRange.full"],
+  fullStandard: ["use", "threshold", "", "normedDistance.full", "inRange.full"],
+  fullFiltered: ["use", "threshold", "", "normedDistance.full", "inRange.full"],
 };
 
-const charts = chartTypes.reduce((a, v) => ({
-  ...a,
-  [v]: types.reduce((acc, val) => ({...acc, [val]: undefined}), {}),
-}), {});
+const charts = chartTypes.reduce(
+  (a, v) => ({
+    ...a,
+    [v]: types.reduce((acc, val) => ({ ...acc, [val]: undefined }), {}),
+  }),
+  {}
+);
 
 // Define controls present in HTML here
 const controls = {
   standard: {
     slider: {
-      threshold: undefined, 
+      threshold: undefined,
       sd: undefined,
     },
     checkbox: undefined,
@@ -39,7 +42,7 @@ const controls = {
   },
   filtered: {
     slider: {
-      threshold: undefined, 
+      threshold: undefined,
       sd: undefined,
     },
     checkbox: undefined,
@@ -81,24 +84,24 @@ const controls = {
   },
 };
 
-Object.byString = function(o, s) {
-  if (s === '') return null;
-  s = s.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
-  s = s.replace(/^\./, '');           // strip a leading dot
-  var a = s.split('.');
+Object.byString = function (o, s) {
+  if (s === "") return null;
+  s = s.replace(/\[(\w+)\]/g, ".$1"); // convert indexes to properties
+  s = s.replace(/^\./, ""); // strip a leading dot
+  var a = s.split(".");
   for (var i = 0, n = a.length; i < n; ++i) {
-      var k = a[i];
-      if (k in o) {
-          o = o[k];
-      } else {
-          return;
-      }
+    var k = a[i];
+    if (k in o) {
+      o = o[k];
+    } else {
+      return;
+    }
   }
   return o;
-}
+};
 
 function clearData() {
-  passwordField.value = '';
+  passwordField.value = "";
   keydownArray = [];
   keyupArray = [];
   keyCount = 0;
@@ -108,7 +111,10 @@ function keydownEvent(e) {
   var details = keyEvent(e);
   if (!details) return;
 
-  if (['Backspace'].includes(details.code) || ['Backspace'].includes(details.code)) {
+  if (
+    ["Backspace"].includes(details.code) ||
+    ["Backspace"].includes(details.code)
+  ) {
     return clearData();
   }
 
@@ -122,20 +128,21 @@ function keyupEvent(e) {
   if (!details) return;
   if (!details.time) details.time = Date.now();
 
-  if (['Backspace'].includes(details.code) || ['Backspace'].includes(details.code)) {
+  if (
+    ["Backspace"].includes(details.code) ||
+    ["Backspace"].includes(details.code)
+  ) {
     return clearData();
   }
 
-  var reqdUpKeystroke = keyupArray
-    .find(element => element.code === details.code && !element.time);
+  var reqdUpKeystroke = keyupArray.find(
+    (element) => element.code === details.code && !element.time
+  );
 
-  if (reqdUpKeystroke)
-    reqdUpKeystroke.time = details.time;
+  if (reqdUpKeystroke) reqdUpKeystroke.time = details.time;
 
-  if (details.code === 'Enter') sendToServer();
+  if (details.code === "Enter") sendToServer();
 }
-
-
 
 function sendToServer() {
   var data = {
@@ -150,42 +157,55 @@ function sendToServer() {
   clearData();
 
   fetch(LOGIN_LINK, {
-    method: 'POST',
-    mode: 'cors',
+    method: "POST",
+    mode: "cors",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   }).then(async (res) => {
-    if(res.ok) {
-      let response = await res.json();
+    if (res.ok) {
+      var response = await res.json();
 
-      const table = document.getElementById('dataTable');
+      const table = document.getElementById("dataTable");
 
       Object.keys(controls).map((detector, detectorIndex) => {
         const data = response.result[detector];
         const keys = responseKeys[detector];
 
-        Array.from(table.getElementsByTagName('tr')).map((row, i) => {
+        Array.from(table.getElementsByTagName("tr")).map((row, i) => {
           const index = i - 1;
           if (i === 0) return;
           if (i === keys.length + 1) {
-            row.getElementsByTagName('th')[1].innerHTML = response.result.accepted;
+            row.getElementsByTagName("th")[1].innerHTML =
+              response.result.accepted;
             return;
           }
 
-          const cells = row.getElementsByTagName('td');
-          const value = Object.byString(data, keys[index]) ?? '-';
-          const cellValue = (typeof value == 'number') ? value.toFixed(2) : value;
-          
+          const cells = row.getElementsByTagName("td");
+          const value = Object.byString(data, keys[index]) ?? "-";
+          const cellValue = typeof value == "number" ? value.toFixed(2) : value;
+
           cells[detectorIndex].innerHTML = cellValue;
         });
       });
 
       types.map((type) => {
-        populateChart(charts.standard[type], response.db[type], response.attempt[type]);
-        populateChart(charts.filtered[type], response.filteredDb[type], response.attempt[type]);
+        populateChart(
+          charts.standard[type],
+          response.db[type],
+          response.attempt[type]
+        );
+        populateChart(
+          charts.filtered[type],
+          response.filteredDb[type],
+          response.attempt[type]
+        );
       });
+
+      if (response.result.accepted) {
+        window.location.replace("http://localhost:2800")
+      }
     } else {
       let response = await res.json();
 
@@ -193,10 +213,12 @@ function sendToServer() {
         content: `${response.msg}`,
         title: "Login failed",
         alertType: "alert-danger",
-        fillType: "filled-lm"
+        fillType: "filled-lm",
       });
     }
   });
+
+  
 }
 
 function initialiseCharts() {
@@ -204,49 +226,53 @@ function initialiseCharts() {
   Chart.defaults.global.elements.point.hitRadius = 3;
 
   const config = {
-    type: 'line',
+    type: "line",
     data: {
       labels: [],
       datasets: [
         // Red
         {
-          label: 'user',
+          label: "user",
           data: [],
-          backgroundColor: '#ff4d4f10',
-          borderColor: '#ff4d4f',
+          backgroundColor: "#ff4d4f10",
+          borderColor: "#ff4d4f",
           borderWidth: 2,
         },
         // Blue
         {
-          label: 'db',
+          label: "db",
           data: [],
-          backgroundColor: '#1890ff10',
-          borderColor: '#1890ff',
+          backgroundColor: "#1890ff10",
+          borderColor: "#1890ff",
           borderWidth: 2,
         },
       ],
     },
     options: {
-      title: { display: false, },
+      title: { display: false },
       scales: {
-        xAxes: [{
-          gridLines: {
-            display: false,
+        xAxes: [
+          {
+            gridLines: {
+              display: false,
+            },
           },
-        }],
-        yAxes: [{
-          gridLines: {
-            display: false,
+        ],
+        yAxes: [
+          {
+            gridLines: {
+              display: false,
+            },
+            ticks: {
+              display: false,
+            },
           },
-          ticks: {
-            display: false,
-          },
-        }],
+        ],
       },
-      legend: { display: false, },
+      legend: { display: false },
       maintainAspectRatio: false,
-    }
-  }
+    },
+  };
 
   chartTypes.map((chartType) => {
     types.map((type) => {
@@ -257,18 +283,17 @@ function initialiseCharts() {
 }
 
 function populateChart(chart, dbData, userData) {
-  populateChartWithResponse(chart, 'DB', 'db', dbData);
-  populateChartWithResponse(chart, '', 'user', userData);
+  populateChartWithResponse(chart, "DB", "db", dbData);
+  populateChartWithResponse(chart, "", "user", userData);
 }
 
-function populateChartWithResponse(chart, label="", datasetLabel, data) {
+function populateChartWithResponse(chart, label = "", datasetLabel, data) {
   if (label) {
     chart.data.labels = Array(data.length).fill("");
   }
 
   chart.data.datasets.forEach((dataset) => {
-    if(dataset.label === datasetLabel)
-      dataset.data = data;
+    if (dataset.label === datasetLabel) dataset.data = data;
   });
   chart.update();
 }
@@ -276,21 +301,22 @@ function populateChartWithResponse(chart, label="", datasetLabel, data) {
 function initialiseControls() {
   Object.keys(controls).map((detector) => {
     if (!(detector in controls)) return;
-    
-    Object.keys(controls[detector]).map((controlType) => {
-      if(!(controlType in controls[detector])) return;
 
-      if (controlType === 'checkbox') {
+    Object.keys(controls[detector]).map((controlType) => {
+      if (!(controlType in controls[detector])) return;
+
+      if (controlType === "checkbox") {
         const controlId = `${detector}_${controlType}`;
         const labelId = `${detector}_${controlType}_label`;
         controls[detector][controlType] = document.getElementById(controlId);
-        controls[detector].label[controlType] = document.getElementById(labelId);
+        controls[detector].label[controlType] =
+          document.getElementById(labelId);
         return;
-      } 
+      }
 
-      if (controlType === 'slider') {
+      if (controlType === "slider") {
         Object.keys(controls[detector][controlType]).map((sliderType) => {
-          if(!(sliderType in controls[detector][controlType])) return;
+          if (!(sliderType in controls[detector][controlType])) return;
 
           const controlId = `${detector}_${controlType}_${sliderType}`;
           const labelId = `${controlId}_label`;
@@ -299,7 +325,9 @@ function initialiseControls() {
           const label = document.getElementById(labelId);
 
           label.innerHTML = slider.value;
-          slider.oninput = () => { label.innerHTML = slider.value };
+          slider.oninput = () => {
+            label.innerHTML = slider.value;
+          };
 
           controls[detector][controlType][sliderType] = slider;
           controls[detector].label[sliderType] = label;
@@ -315,16 +343,16 @@ function getRequestData() {
 
   Object.keys(controls).map((detector) => {
     data[detector] = {};
-    
-    Object.keys(controls[detector]).map((controlType) => {
-      if (controlType === 'label') return;
 
-      if (controlType === 'checkbox') {
+    Object.keys(controls[detector]).map((controlType) => {
+      if (controlType === "label") return;
+
+      if (controlType === "checkbox") {
         data[detector].use = controls[detector][controlType].checked;
         return;
-      } 
+      }
 
-      if (controlType === 'slider') {
+      if (controlType === "slider") {
         Object.keys(controls[detector][controlType]).map((sliderType) => {
           data[detector][sliderType] = Number(
             controls[detector][controlType][sliderType].value
@@ -342,10 +370,10 @@ window.onload = function () {
   initialiseCharts();
   initialiseControls();
 
-  passwordField = document.getElementById('passwordField');
-  usernameField = document.getElementById('usernameField');
-  passwordField.value = '';
+  passwordField = document.getElementById("passwordField");
+  usernameField = document.getElementById("usernameField");
+  passwordField.value = "";
 
-  passwordField.addEventListener('keydown', this.keydownEvent);
-  passwordField.addEventListener('keyup', this.keyupEvent);
-}
+  passwordField.addEventListener("keydown", this.keydownEvent);
+  passwordField.addEventListener("keyup", this.keyupEvent);
+};
