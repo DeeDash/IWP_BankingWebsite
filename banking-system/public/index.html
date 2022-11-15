@@ -104,6 +104,7 @@
             <div class="table-responsive">
               <table class="table align-middle table-bordered table-striped table-hover">
                 <thead>
+                    <th>Account Number</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Balance</th>
@@ -111,14 +112,16 @@
                   </thead>
                   <tbody id="select-btn">
                       <tr ng-repeat="user in users">
+                          <td>{{ user._id }}</td>
                           <td>{{ user.name }}</td>
                           <td>{{ user.email }}</td>
                           <td>{{ user.balance }}</td>
                           <td><button type="button" class="btn btn-primary tr-btn" ng-click="selectFrom(user)">SELECT</button></td>
                         </tr>
                   </tbody>
-                  <tbody id="transfer-btn">
+                  <tbody id="transfer-btn" >
                       <tr ng-repeat="user in users">
+                          <td>{{ user._id }}</td>
                           <td>{{ user.name }}</td>
                           <td>{{ user.email }}</td>
                           <td>{{ user.balance }}</td>
