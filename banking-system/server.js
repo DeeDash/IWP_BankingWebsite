@@ -1,5 +1,5 @@
 var express = require("express");
-path = require("path");
+var path = require("path");
 var app = express();
 var http = require('http');
 const mongoose = require('mongoose');
@@ -12,7 +12,6 @@ db.once('open', function () {
     console.log("connected...");
 });
 
-// console.log(path.join(__dirname,"/public"));
 const staticPath = path.join(__dirname,"/public");
 app.use(express.static(staticPath));
 app.use(express.json());
