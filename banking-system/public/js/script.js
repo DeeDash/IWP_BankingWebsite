@@ -103,7 +103,6 @@ app.controller('CustomerController', function ($scope, $http, $templateCache) {
                 cache: $templateCache
             }).
                 success(function (response) {
-                    // window.alert("money transfer successfully");
                     swal("Done!", "Transaction Successful!", "success");
                     $scope.list();
                 }).
@@ -112,7 +111,6 @@ app.controller('CustomerController', function ($scope, $http, $templateCache) {
                 });
         }
         else {
-            // window.alert("Do Valid Transaction");
             swal("Error!", "Do Valid Transaction!", "error");
         }
 
