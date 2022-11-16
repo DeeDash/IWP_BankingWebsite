@@ -99,36 +99,31 @@
           </figure>
         </div>
         <div class="container mt-2">
-            <div class="table-responsive">
-              <table class="table align-middle table-bordered table-striped table-hover">
-                <thead>
-                    <th>Account Number</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Balance</th>
-                    <th>Transfer Money</th>
-                  </thead>
-                  <tbody id="select-btn">
-                      <tr ng-repeat="user in users">
-                          <td>{{ user._id }}</td>
-                          <td>{{ user.name }}</td>
-                          <td>{{ user.email }}</td>
-                          <td>{{ user.balance }}</td>
-                          <td><button type="button" class="btn btn-primary tr-btn" ng-click="selectFrom(user)">SELECT</button></td>
-                        </tr>
-                  </tbody>
-                  <tbody id="transfer-btn" >
-                      <tr ng-repeat="user in users">
-                          <td>{{ user._id }}</td>
-                          <td>{{ user.name }}</td>
-                          <td>{{ user.email }}</td>
-                          <td>{{ user.balance }}</td>
-                          <td><button type="button" class="btn btn-primary tr-btn" data-toggle="modal" data-target="#exampleModal" ng-click="selectTo(user)">TRANSFER</button></td>
-                        </tr>
-                </tbody>
-              </table>
-            </div>
-        </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-bordered table-striped table-hover">
+              <thead>
+                  <th>Account Number</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Balance</th>
+                  <th>Transfer Money</th>
+                </thead>
+                <tbody id="transfer-btn">
+                    <tr ng-repeat="user in users">
+                        <td>{{ user._id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.balance }}</td>
+                        <td><button type="button" class="btn btn-primary tr-btn" data-toggle="modal" data-target="#exampleModal" ng-click="selectTo(user)">TRANSFER</button></td>
+                      </tr>
+              </tbody>
+              <div ng-repeat="dee in deedashList">
+                  <button type="button" class="btn btn-primary tr-btn" ng-click="selectFrom(dee)">INITIATE TRANSFER</button>
+                  <br><br>
+              </div>
+            </table>
+          </div>
+      </div>
        
 <!-- model start here -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
