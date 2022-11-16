@@ -21,35 +21,41 @@
     <!--Navbar Starts Here-->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand text-primary font-weight-bold" href="../#/">Spark Bank</a>
+            <a class="navbar-brand" href="../#/">HalfBank</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <ul class="nav nav-pills nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" aria-current="page" href="../#/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#/customer">Transfers</a>
+                        <a class="nav-link" href="../#/customer">Transfers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#/">Retirement Planning</a>
+                        <a class="nav-link" href="/">Retirement Planning</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Loan_page.html">Loan Menu</a>
+                        <a class="nav-link" href="../Loan_page.html">Loan Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#/history">Transaction History</a>
+                        <a class="nav-link" href="../#/history">Transaction History</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact us</a>
+                        <a class="nav-link" href="../#/about">About</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- navbar ends here  -->
+    
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact us</a>
+        </li>
+    </ul>
 
     <section class="">
         <div class="box-main d-grid align-items-center vh-100">
@@ -137,11 +143,12 @@
     <hr>
     <section class="container-fluid d-flex flex-column p-5" id="contact">
         <h2 class="contact-heading">Talk to us</h2>
-        <form method="post" class="contact-form">
+        <!-- <form method="post" class="contact-form"> -->
+        <form action="javascript:sendmail()" method="post" class="contact-form">
             <div class="d-flex flex-column gap-2">
                 <input type="text" name="name" class="name" id="name" placeholder="Enter your name" required>
-                <input type="text" name="phone" class="name" id="phone" placeholder="Enter your phone number" required>
-                <input type="email" name="email" class="name" id="email" placeholder="Enter your email" required>
+                <input type="text" name="Subject" class="name" id="Subject" placeholder="Enter the subject" required>
+                <input type="email" name="email" class="name" id="Sender" placeholder="Enter your email" required>
                 <textarea class="name" name="message" id="message" cols="30" rows="10"
                     placeholder="Elaborate your concern"></textarea>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -156,4 +163,55 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
     <script src="js/contact.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+ 
+<script>  
+
+     function sendmail(){
+    
+			var name = $('#Name').val();
+			var email = $('#Sender').val();
+			var subject = $('#Subject').val();
+      var message = $('message').val();
+
+			// var body = $('#body').val();
+
+			var Body='Name: '+name+'<br>Email: '+email+'<br>Subject: '+subject+'<br>Message: '+message;
+			//console.log(name, phone, email, message);
+
+			Email.send({
+        SecureToken:"fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+                Host : "smtp.gmail.com",
+                Username : "utkarshagrawal947@gmail.com",
+                Password : "qnsncmscsiuirjev",
+				To: 'utkarsh.agrawal2020@gmail.com',
+				From: "utkarshagrawal947@gmail.com",
+				Subject: "New message on contact from "+name,
+				Body: Body
+			}).then(
+				message =>{
+					//console.log (message);
+					if(message=='OK'){
+					alert('Your mail has been send. Thank you for connecting.');
+					}
+					else{
+						console.error (message);
+						alert('There is error at sending message. ')
+						
+					}
+
+				}
+			);
+
+
+
+		}
+
+
+    </script>
+ </script>
 </body>
