@@ -40,19 +40,28 @@ app.controller('CustomerController', function ($scope, $http, $templateCache) {
             $scope.users = data;
         });
     };
-    $scope.list();
-    $scope.selectFrom = function (dataFrom) {
-        $scope.userFrom = dataFrom;
-        $('#select-btn').hide();
-        $('#transfer-btn').show();
+
+    $scope.getDeedash = function () { 
+        var deedash = 'http://localhost:2800/getDeedash';
+        $http.get(deedash).success(function (data) {
+            $scope.deedashList = data;
+        });
     };
+    $scope.list();
+    $scope.getDeedash();
+
     $scope.selectTo = function (dataTo) {
         $scope.userTo = dataTo;
-        $('#select-btn').show();
-        $('#transfer-btn').hide();
+    };
+
+    $scope.selectFrom = function (dataFrom) {
+        $scope.userFrom = dataFrom;
     };
 
     $scope.Transfer = function (TrFrom, TrTo, amount) {
+        
+        console.log("TrFrom:" + TrFrom.email);
+        console.log("TrTo:" + TrTo.email);
         var insertMethod = 'POST';
         var updateMethod = 'PUT';
         var inserturl = 'http://localhost:2800/insertUser';

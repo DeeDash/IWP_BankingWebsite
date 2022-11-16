@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 
 //rest service
 app.get('/getUsers', function (req, res) {
-    db.collection('sparkbank').find({}).toArray(function (err, sparkbank) {
+    db.collection('sparkbank').find({ email: { $ne: "deedash@gmail.com" } }).toArray(function (err, sparkbank) {
         if (err) {
             console.log(err);
         }
@@ -33,6 +33,16 @@ app.get('/getUsers', function (req, res) {
     });
 });
 
+app.get('/getDeedash', function (req, res) {
+    db.collection('sparkbank').find({ email: "deedash@gmail.com"  }).toArray(function (err, sparkbank) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.json(sparkbank);
+        }
+    });
+});
 
 app.post('/insertUser', function(req, res){
     var jsonData = JSON.parse(req.body.mydata);
