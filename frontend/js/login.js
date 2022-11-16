@@ -204,7 +204,9 @@ function sendToServer() {
       });
 
       if (response.result.accepted) {
-        window.location.replace("http://localhost:2800")
+        setTimeout(function(){
+          window.location.replace("../banking-system/public/index.html#/home")
+        }, 10000);
       }
     } else {
       let response = await res.json();
